@@ -19,7 +19,6 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
 public class MainActivity extends AppCompatActivity {
-
     private LoginButton loginButton;
     private CallbackManager callbackManager;
     private ProfileTracker profileTracker;
