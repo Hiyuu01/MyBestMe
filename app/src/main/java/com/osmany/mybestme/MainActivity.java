@@ -1,51 +1,47 @@
 package com.osmany.mybestme;
 
+
 import android.content.Intent;
-import android.hardware.camera2.params.Face;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookBroadcastReceiver;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
 public class MainActivity extends AppCompatActivity {
+
     private LoginButton loginButton;
     private CallbackManager callbackManager;
     private ProfileTracker profileTracker;
     private AccessTokenTracker accessTokenTracker;
+    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
 
         setContentView(R.layout.activity_main);
-
         callbackManager = CallbackManager.Factory.create();
 
 
-        loginButton = (LoginButton) findViewById(R.id.loginButton);
+        loginButton = findViewById(R.id.loginButton);
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 AccessToken accessToken=loginResult.getAccessToken();
-
-
-
-
+                token = accessToken.getToken();
+                Log.d("TOKEN",token);
                 goSelectScreen();
-
-
-
             }
 
             @Override
@@ -66,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void goSelectScreen() {
         Intent intent = new Intent(this, SelectioActivity.class);
+        intent.putExtra("TOKEN",token);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

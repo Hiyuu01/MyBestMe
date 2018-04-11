@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     tools:context="com.osmany.mybestme.SelectioActivity">
 
-    <Button
-        android:onClick="log_out"
-        android:id="@+id/log_out"
-        android:layout_width="88dp"
-        android:layout_height="49dp"
-        android:text="Log Out"
-        tools:layout_editor_absoluteX="280dp"
-        tools:layout_editor_absoluteY="15dp" />
 
-    <Button
+    <com.facebook.login.widget.LoginButton
+        android:onClick="logOut"
+        android:id="@+id/log_out_button"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-        android:id="@+id/Aceptar"
-        android:layout_width="135dp"
-        android:layout_height="49dp"
-        android:text="Aceptar"
-        tools:layout_editor_absoluteY="403dp"
-        tools:layout_editor_absoluteX="125dp" />
-</LinearLayout>
+    <TextView
+        android:layout_centerVertical="true"
+        android:id="@+id/token_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>
