@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.osmany.mybestme.FinalActivity">
+    tools:context="com.osmany.mybestme.views.collage.FinalActivity">
 
 </android.support.constraint.ConstraintLayout>

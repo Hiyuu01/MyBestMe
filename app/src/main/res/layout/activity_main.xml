@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context="com.osmany.mybestme.MainActivity"
+    tools:context="com.osmany.mybestme.views.login.MainActivity"
     android:background="@color/fondo">
 
 
